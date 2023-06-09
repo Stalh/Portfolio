@@ -41,14 +41,29 @@
 
     <section id="contact">
       <h2>Contactez-moi</h2>
-      <form>
-        <!-- Ajoutez ici les champs de formulaire pour le nom, l'e-mail, le message, etc. -->
-        <!-- Ajoutez un bouton de soumission -->
-      </form>
+      <div class="contact-links">
+        <div class="social-icon-container">
+          <a href="mailto:guillaume.test@gmail.com">
+            <img src="./assets/gmail.png" alt="E-mail" class="social-icon email-icon">
+          </a>
+        </div>
+        <div class="social-icon-container">
+          <a href="https://www.linkedin.com/in/guillaume-zimol-12b36617b" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/linkedin.png" alt="LinkedIn" class="social-icon linkedin-icon">
+          </a>
+        </div>
+        <div class="social-icon-container">
+          <a href="https://github.com/Stalh" target="_blank" rel="noopener noreferrer">
+            <img src="./assets/github.png" alt="GitHub" class="social-icon github-icon">
+          </a>
+        </div>
+      </div>
     </section>
 
+
+
     <footer>
-      <p>&copy; 2023 Mon Portfolio</p>
+      <p>&copy; Guillaume Zimol 2023</p>
     </footer>
   </div>
 </template>
@@ -164,5 +179,29 @@ footer {
   margin-right: 20px; /* Espace entre l'image et le texte */
   margin-left: 75px; /* Décalage horizontal */
 }
+
+.social-icon-container {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
 
 </style>
