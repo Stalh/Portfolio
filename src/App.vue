@@ -35,9 +35,19 @@
     <section id="projects">
       <h2>Mes projets</h2>
       <div class="project-grid">
-        <project-item v-for="project in projects" :key="project.id" :project="project" />
+        <project-item v-for="project in projects" :key="project.id" :project="project" @open-project-modal="openProjectModal" />
       </div>
     </section>
+
+    <div v-if="showProjectModal" class="project-modal">
+      <div class="modal-content">
+        <h3>{{ selectedProject.title }}</h3>
+        <p>{{ selectedProject.description }}</p>
+        <!-- Ajoutez ici d'autres détails spécifiques au projet -->
+        <button @click="closeProjectModal">Fermer</button>
+      </div>
+    </div>
+
 
     <section id="contact">
       <h2>Contactez-moi</h2>
@@ -95,8 +105,19 @@ export default {
         },
         // Ajoutez d'autres projets ici
       ],
-      selectedProject: null
+      selectedProject: null,
+      showProjectModal: false
     };
+  },
+  methods: {
+    openProjectModal(project) {
+      this.selectedProject = project;
+      this.showProjectModal = true;
+    },
+    closeProjectModal() {
+      this.selectedProject = null;
+      this.showProjectModal = false;
+    }
   }
 };
 </script>
@@ -201,6 +222,48 @@ footer {
   justify-content: center;
   align-items: center;
   padding-left: 20px;
+}
+
+.project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px); /* Ajoute le flou */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #2c3e50; /* Ajoute une bordure solide */
+  max-width: 800px; /* Modifie la largeur de la modal */
+}
+
+.modal-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #34495e;
 }
 
 
