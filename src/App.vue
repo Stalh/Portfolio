@@ -16,6 +16,10 @@
         <h2>Bienvenue sur mon portfolio</h2>
         <p>Découvrez mes projets et compétences</p>
         <a href="#projects" class="cta-button">Voir mes projets</a>
+        <div class="typing-effect">
+          <span id="typed-text"></span>
+          <span id="cursor"></span>
+        </div>
       </div>
     </section>
 
@@ -103,7 +107,13 @@ export default {
           summary: 'Résumé du projet 2',
           description: 'Description détaillée du projet 2'
         },
-        // Ajoutez d'autres projets ici
+        {
+          id: 3,
+          image: require('./assets/test.png'),
+          title: 'Projet 3',
+          summary: 'Résumé du projet 3',
+          description: 'Description détaillée du projet 3'
+        },
       ],
       selectedProject: null,
       showProjectModal: false
@@ -118,6 +128,50 @@ export default {
       this.selectedProject = null;
       this.showProjectModal = false;
     }
+  },
+  mounted() {
+    // Configuration du texte à taper
+    const textToType = "Guillaume Zimol - Développeur Web";
+
+// Variables de configuration
+    const typingDelay = 100; // Délai entre chaque caractère (en millisecondes)
+    const eraseDelay = 1000; // Délai après avoir tapé tous les caractères (en millisecondes)
+
+// Sélection des éléments HTML
+    const typedText = document.querySelector("#typed-text");
+    const cursor = document.querySelector("#cursor");
+
+// Fonction pour simuler l'effet de frappe au clavier
+    function typeText() {
+      for (let i = 0; i < textToType.length; i++) {
+        setTimeout(function() {
+          typedText.textContent += textToType[i];
+          updateCursor(); // Ajouter cette ligne
+        }, i * typingDelay);
+      }
+
+      setTimeout(eraseText, textToType.length * typingDelay + eraseDelay);
+    }
+
+    function updateCursor() {
+      cursor.style.left = (typedText.offsetWidth) + 'px';
+    }
+
+// Fonction pour effacer le texte
+    function eraseText() {
+      const textLength = typedText.textContent.length;
+      for (let i = textLength; i > 0; i--) {
+        setTimeout(function() {
+          typedText.textContent = typedText.textContent.slice(0, -1);
+          updateCursor(); // Ajouter cette ligne
+        }, (textLength - i) * typingDelay);
+      }
+
+      setTimeout(typeText, textLength * typingDelay);
+    }
+
+// Démarrer l'effet de frappe
+    typeText();
   }
 };
 </script>
@@ -230,7 +284,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(8px); /* Ajoute le flou */
+  backdrop-filter: blur(2px); /* Ajoute le flou */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,6 +296,9 @@ footer {
   border-radius: 10px;
   border: 1px solid #2c3e50; /* Ajoute une bordure solide */
   max-width: 800px; /* Modifie la largeur de la modal */
+  position: relative;
+  width: 95%;
+  height: 80%;
 }
 
 .modal-content h3 {
@@ -264,6 +321,36 @@ footer {
 
 .modal-content button:hover {
   background-color: #34495e;
+}
+
+.typing-effect {
+  font-family: "Courier New", monospace;
+  font-size: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+#typed-text {
+  display: inline-block;
+}
+
+#cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  background-color: #000;
+  animation: cursor-blink 0.7s infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #000;
+  }
 }
 
 
