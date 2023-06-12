@@ -3,6 +3,7 @@
     <img :src="project.image" alt="Image du projet" class="project-image">
     <h3>{{ project.title }}</h3>
     <p>{{ project.summary }}</p>
+    <!-- <slot/> -->
   </div>
 </template>
 

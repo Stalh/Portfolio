@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <header>
-      <h1>Mon Portfolio</h1>
       <nav>
         <ul>
           <li><a href="#about">À propos</a></li>
@@ -13,13 +12,8 @@
 
     <section id="hero">
       <div class="hero-content">
-        <h2>Bienvenue sur mon portfolio</h2>
+        <div id="typewriter" class="typed-text"></div>
         <p>Découvrez mes projets et compétences</p>
-        <a href="#projects" class="cta-button">Voir mes projets</a>
-        <div class="typing-effect">
-          <span id="typed-text"></span>
-          <span id="cursor"></span>
-        </div>
       </div>
     </section>
 
@@ -39,7 +33,9 @@
     <section id="projects">
       <h2>Mes projets</h2>
       <div class="project-grid">
-        <project-item v-for="project in projects" :key="project.id" :project="project" @open-project-modal="openProjectModal" />
+        <project-item v-for="project in projects" :key="project.id" :project="project" @open-project-modal="openProjectModal" >
+           <!-- Pour passer des components dans des components <p>blabla</p> -->
+        </project-item>
       </div>
     </section>
 
@@ -82,276 +78,55 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import {onMounted, ref} from 'vue';
 import ProjectItem from './components/ProjectItem.vue';
+import Typewriter from 'typewriter-effect/dist/core';
 
-export default {
-  name: 'App',
-  components: {
-    ProjectItem
+const projects = ref([
+  {
+    id: 1,
+    image: require('./assets/test.png'),
+    title: 'Projet 1',
+    summary: 'Résumé du projet 1',
+    description: 'Description détaillée du projet 1'
   },
-  data() {
-    return {
-      projects: [
-        {
-          id: 1,
-          image: require('./assets/test.png'),
-          title: 'Projet 1',
-          summary: 'Résumé du projet 1',
-          description: 'Description détaillée du projet 1'
-        },
-        {
-          id: 2,
-          image: require('./assets/test.png'),
-          title: 'Projet 2',
-          summary: 'Résumé du projet 2',
-          description: 'Description détaillée du projet 2'
-        },
-        {
-          id: 3,
-          image: require('./assets/test.png'),
-          title: 'Projet 3',
-          summary: 'Résumé du projet 3',
-          description: 'Description détaillée du projet 3'
-        },
-      ],
-      selectedProject: null,
-      showProjectModal: false
-    };
+  {
+    id: 2,
+    image: require('./assets/test.png'),
+    title: 'Projet 2',
+    summary: 'Résumé du projet 2',
+    description: 'Description détaillée du projet 2'
   },
-  methods: {
-    openProjectModal(project) {
-      this.selectedProject = project;
-      this.showProjectModal = true;
-    },
-    closeProjectModal() {
-      this.selectedProject = null;
-      this.showProjectModal = false;
-    }
+  {
+    id: 3,
+    image: require('./assets/test.png'),
+    title: 'Projet 3',
+    summary: 'Résumé du projet 3',
+    description: 'Description détaillée du projet 3'
   },
-  mounted() {
-    // Configuration du texte à taper
-    const textToType = "Guillaume Zimol - Développeur Web";
+]);
 
-// Variables de configuration
-    const typingDelay = 100; // Délai entre chaque caractère (en millisecondes)
-    const eraseDelay = 1000; // Délai après avoir tapé tous les caractères (en millisecondes)
+const selectedProject = ref(null);
+const showProjectModal = ref(false);
 
-// Sélection des éléments HTML
-    const typedText = document.querySelector("#typed-text");
-    const cursor = document.querySelector("#cursor");
-
-// Fonction pour simuler l'effet de frappe au clavier
-    function typeText() {
-      for (let i = 0; i < textToType.length; i++) {
-        setTimeout(function() {
-          typedText.textContent += textToType[i];
-          updateCursor(); // Ajouter cette ligne
-        }, i * typingDelay);
-      }
-
-      setTimeout(eraseText, textToType.length * typingDelay + eraseDelay);
-    }
-
-    function updateCursor() {
-      cursor.style.left = (typedText.offsetWidth) + 'px';
-    }
-
-// Fonction pour effacer le texte
-    function eraseText() {
-      const textLength = typedText.textContent.length;
-      for (let i = textLength; i > 0; i--) {
-        setTimeout(function() {
-          typedText.textContent = typedText.textContent.slice(0, -1);
-          updateCursor(); // Ajouter cette ligne
-        }, (textLength - i) * typingDelay);
-      }
-
-      setTimeout(typeText, textLength * typingDelay);
-    }
-
-// Démarrer l'effet de frappe
-    typeText();
-  }
+const openProjectModal = (project) => {
+  selectedProject.value = project;
+  showProjectModal.value = true;
 };
+
+const closeProjectModal = () => {
+  selectedProject.value = null;
+  showProjectModal.value = false;
+};
+
+onMounted(() => {
+  new Typewriter('#typewriter', {
+    strings: ['GuillaumZ', 'Guillaume Zimol - Développeur Web'],
+    autoStart: true,
+    loop: true
+  });
+});
+
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-header {
-  padding: 20px;
-  background-color: #f2f2f2;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #2c3e50;
-}
-
-#hero {
-  background-size: cover;
-  background-position: center;
-  color: #2c3e50;
-  padding: 100px 0;
-}
-
-.hero-content {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-#about {
-  padding: 50px 0;
-  background-color: #f2f2f2;
-}
-
-#projects {
-  padding: 50px 0;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-#contact {
-  padding: 50px 0;
-  background-color: #f2f2f2;
-}
-
-footer {
-  padding: 20px;
-  background-color: #f2f2f2;
-}
-
-.about-info {
-  display: flex;
-  align-items: center;
-}
-
-.profile-image {
-  width: 350px; /* Ajustez la taille selon vos besoins */
-  height: auto;
-  margin-right: 20px; /* Espace entre l'image et le texte */
-  margin-left: 75px; /* Décalage horizontal */
-}
-
-.social-icon-container {
-  display: inline-block;
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-.social-icon {
-  width: 30px;
-  height: 30px;
-  transition: transform 0.3s ease;
-}
-
-.social-icon:hover {
-  transform: scale(1.2);
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 20px;
-}
-
-.project-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(2px); /* Ajoute le flou */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #2c3e50; /* Ajoute une bordure solide */
-  max-width: 800px; /* Modifie la largeur de la modal */
-  position: relative;
-  width: 95%;
-  height: 80%;
-}
-
-.modal-content h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.modal-content p {
-  margin-bottom: 20px;
-}
-
-.modal-content button {
-  background-color: #2c3e50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.modal-content button:hover {
-  background-color: #34495e;
-}
-
-.typing-effect {
-  font-family: "Courier New", monospace;
-  font-size: 24px;
-  position: relative;
-  overflow: hidden;
-}
-
-#typed-text {
-  display: inline-block;
-}
-
-#cursor {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 10px;
-  height: 100%;
-  background-color: #000;
-  animation: cursor-blink 0.7s infinite;
-}
-
-@keyframes cursor-blink {
-  0%, 100% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: #000;
-  }
-}
-
-
-</style>
