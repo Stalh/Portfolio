@@ -48,7 +48,57 @@
       </div>
     </div>
 
-
+    <!-- Section représentant une frise chronologique de mon parcours scolaire et de mes expériences professionnelles -->
+    <section id="parcours">
+      <h2>Expériences et parcours</h2>
+      <ul class="timeline">
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Lycée Louis Bertrand</span>
+              <span class="time-wrapper"><span class="time">2015 - 2018</span></span>
+            </div>
+            <div class="desc">C'est la où j'ai commencé à codé, en python.</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">FST (Nancy)</span>
+              <span class="time-wrapper"><span class="time">2018 - 2022</span></span>
+            </div>
+            <div class="desc">Via de nombreux projet ma capcité à coder à évoluer dans différent langage mais surtout en Java.</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Proximus</span>
+              <span class="time-wrapper"><span class="time">2022 (Avril - Juin)</span></span>
+            </div>
+            <div class="desc">Stage en informatique en tant que développeur web.</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-r">
+            <div class="flag-wrapper">
+              <span class="flag">FST (Nancy)</span>
+              <span class="time-wrapper"><span class="time">2022 - 2023</span></span>
+            </div>
+            <div class="desc">Première année de Master Informatique général, renforcement de mon analyse algorithmique et réalisation de nombreux projets.</div>
+          </div>
+        </li>
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">FST (Nancy</span>
+              <span class="time-wrapper"><span class="time">2023 - </span></span>
+            </div>
+            <div class="desc">Deuxième année de Master Informatique spécialisé en Ingénierie Logiciel.</div>
+          </div>
+        </li>
+      </ul>
+    </section>
 
 
     <section id="contact">
@@ -69,6 +119,9 @@
             <img src="./assets/github.png" alt="GitHub" class="social-icon github-icon">
           </a>
         </div>
+        <a href="./assets/CV.pdf" download="Cv_Guillaume_Zimol.pdf">
+          <img src="./assets/cv.png" alt="CV" class="social-icon cv-icon">
+        </a>
       </div>
     </section>
 
