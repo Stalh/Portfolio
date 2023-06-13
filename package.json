@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "Portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   "dependencies": {
     "@duskmoon/vue3-typed-js": "^0.0.4",
     "core-js": "^3.8.3",
+    "hover.css": "^2.3.2",
     "typed.js": "^2.0.16",
     "typewriter-effect": "^2.20.1",
     "vue": "^3.2.13",

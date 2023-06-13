@@ -31,7 +31,7 @@
     </section>
 
     <section id="projects">
-      <h2>Mes projets</h2>
+      <h2 class="titre">Mes projets</h2>
       <div class="project-grid">
         <project-item v-for="project in projects" :key="project.id" :project="project" @open-project-modal="openProjectModal" >
            <!-- Pour passer des components dans des components <p>blabla</p> -->
@@ -49,8 +49,10 @@
     </div>
 
 
+
+
     <section id="contact">
-      <h2>Contactez-moi</h2>
+      <h2 class="titre">Contactez-moi</h2>
       <div class="contact-links">
         <div class="social-icon-container">
           <a href="mailto:guillaume.test@gmail.com">
@@ -73,7 +75,7 @@
 
 
     <footer>
-      <p>&copy; Guillaume Zimol 2023</p>
+      <p>&copy; Made by Guillaume Zimol</p>
     </footer>
   </div>
 </template>

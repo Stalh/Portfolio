@@ -8,6 +8,7 @@
 
 header {
     padding: 20px;
+
 }
 
 nav ul {
@@ -21,10 +22,54 @@ nav ul li {
     margin-right: 10px;
 }
 
+header {
+    padding: 30px;
+}
+
 nav ul li a {
     text-decoration: none;
     color: #2c3e50;
+    font-weight: normal;
+    transition: all 0.2s ease;
+    position: relative;
+    display: inline-block;
+    margin-right: 30px;
+
 }
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a:hover {
+    font-weight: bold;
+}
+
+nav ul li a:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transition: all 0.2s ease;
+}
+
+nav ul li a:hover:before {
+    width: 100%;
+}
+
+@keyframes myAnimation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
 
 #hero {
     background-size: cover;
@@ -43,9 +88,18 @@ nav ul li a {
     background-color: #f2f2f2;
 }
 
+body {
+    background-color: #f2f2f2;
+}
+
 #projects {
     padding: 50px 0;
 }
+
+.titre{
+    padding-bottom: 50px;
+}
+
 
 .project-grid {
     display: grid;
@@ -145,9 +199,9 @@ footer {
 
 .typed-text {
     font-family: "Arial", sans-serif;
-    font-size: 36px;
+    font-size: 30px;
     padding-bottom: 20px;
-    font-weight: bold; /* Met le texte en gras */
+    font-weight: bold;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
     color: #2c3e50;
 }

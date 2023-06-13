@@ -1,4 +1,4 @@
-# portfolio
+# Mon portfolio en Vue 3
 
 ## Project setup
 ```
@@ -20,5 +20,7 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Using
+
+https://www.npmjs.com/package/typewriter-effect
+https://github.com/IanLunn/Hover
