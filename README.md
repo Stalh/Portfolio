@@ -1,4 +1,4 @@
-# Mon portfolio en Vue 3
+# Mon portfolio réalisé avec Vue 3
 
 ## Project setup
 ```
@@ -24,3 +24,4 @@ npm run lint
 
 https://www.npmjs.com/package/typewriter-effect
 https://github.com/IanLunn/Hover
+https://github.com/simeydotme/sparticles
