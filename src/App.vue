@@ -8,6 +8,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <button @click="darkMode = !darkMode">Mode sombre</button>
     </header>
 
     <section id="hero">
@@ -33,8 +34,8 @@
     <section id="projects">
       <h2 class="titre">Mes projets</h2>
       <div class="project-grid">
-        <project-item v-for="project in projects" :key="project.id" :project="project" @open-project-modal="openProjectModal" >
-           <!-- Pour passer des components dans des components <p>blabla</p> -->
+        <project-item v-for="project in projects" :key="project.id" :project="project" @click="openProjectModal(project)">
+          <!-- Pour passer des components dans des components <p>blabla</p> -->
         </project-item>
       </div>
     </section>
@@ -137,6 +138,7 @@
 import {onMounted, ref} from 'vue';
 import ProjectItem from './components/ProjectItem.vue';
 import Typewriter from 'typewriter-effect/dist/core';
+import Sparticles from 'sparticles';
 
 const projects = ref([
   {
@@ -164,6 +166,7 @@ const projects = ref([
 
 const selectedProject = ref(null);
 const showProjectModal = ref(false);
+const darkMode = ref(false);
 
 const openProjectModal = (project) => {
   selectedProject.value = project;
@@ -175,11 +178,40 @@ const closeProjectModal = () => {
   showProjectModal.value = false;
 };
 
+
+
 onMounted(() => {
   new Typewriter('#typewriter', {
     strings: ['GuillaumZ', 'Guillaume Zimol - Développeur Web'],
     autoStart: true,
     loop: true
+  });
+
+  new Sparticles({
+    selector: 'body',
+    color: '#2c3e50', // Couleur des particules
+    connectParticles: true, // Relier les particules entre elles
+    speed: 1, // Vitesse de déplacement des particules
+    sizeVariations: 3, // Variations de taille des particules
+    maxParticles: 100, // Nombre maximal de particules
+    minDistance: 120, // Distance minimale entre les particules pour la connexion
+    responsive: [
+      {
+        breakpoint: 768,
+        options: {
+          maxParticles: 80,
+          minDistance: 100
+        }
+      },
+      {
+        breakpoint: 576,
+        options: {
+          maxParticles: 50,
+          minDistance: 80
+        }
+      }
+    ],
+    // Autres options de configuration des particules
   });
 });
 
