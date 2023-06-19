@@ -1,4 +1,5 @@
 <template>
+  <body>
   <div id="app">
     <header>
       <nav>
@@ -132,6 +133,7 @@
       <p>&copy; Made by Guillaume Zimol</p>
     </footer>
   </div>
+  </body>
 </template>
 
 <script setup>
@@ -186,33 +188,38 @@ onMounted(() => {
     autoStart: true,
     loop: true
   });
+});
 
-  new Sparticles({
-    selector: 'body',
-    color: '#2c3e50', // Couleur des particules
-    connectParticles: true, // Relier les particules entre elles
-    speed: 1, // Vitesse de déplacement des particules
-    sizeVariations: 3, // Variations de taille des particules
-    maxParticles: 100, // Nombre maximal de particules
-    minDistance: 120, // Distance minimale entre les particules pour la connexion
-    responsive: [
-      {
-        breakpoint: 768,
-        options: {
-          maxParticles: 80,
-          minDistance: 100
+
+onMounted(() => {
+  setTimeout(() => {
+    new Sparticles({
+      selector: '.background', // Sélecteur de l'élément HTML
+      color: '#2c3e50', // Couleur des particules
+      connectParticles: true, // Relier les particules entre elles
+      speed: 1, // Vitesse de déplacement des particules
+      sizeVariations: 10000, // Variations de taille des particules
+      maxParticles: 100, // Nombre maximal de particules
+      minDistance: 120, // Distance minimale entre les particules pour la connexion
+      responsive: [
+        {
+          breakpoint: 768,
+          options: {
+            maxParticles: 80,
+            minDistance: 100
+          }
+        },
+        {
+          breakpoint: 576,
+          options: {
+            maxParticles: 50,
+            minDistance: 80
+          }
         }
-      },
-      {
-        breakpoint: 576,
-        options: {
-          maxParticles: 50,
-          minDistance: 80
-        }
-      }
-    ],
-    // Autres options de configuration des particules
-  });
+      ],
+      // Autres options de configuration des particules
+    });
+  }, 0.5);
 });
 
 </script>
