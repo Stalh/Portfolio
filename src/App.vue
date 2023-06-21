@@ -43,28 +43,32 @@
 
     <div v-if="showProjectModal" class="project-modal">
       <div class="modal-content">
+        <div class="project-image">
+          <img :src="selectedProject.image" alt="Image du projet">
+        </div>
         <div class="project-details">
           <div class="project-summary">
             <h3>{{ selectedProject.title }}</h3>
             <p>{{ selectedProject.summary }}</p>
           </div>
-        </div>
-        <div class="project-description">
-          <h4>Description détaillée :</h4>
-          <p>{{ selectedProject.description }}</p>
-        </div>
-        <div class="technologies">
-          <hr class="modal-line">
-          <h4>Technologies utilisées :</h4>
-          <div class="technology-logos">
-            <span v-for="technology in selectedProject.technologies" :key="technology.name" class="technology-logo">
-              <img :src="technology.icon" alt="Icone {{ technology.name }}">
-            </span>
+          <div class="project-description">
+            <h4>Description détaillée :</h4>
+            <p>{{ selectedProject.description }}</p>
+          </div>
+          <div class="technologies">
+            <hr class="modal-line">
+            <h4>Technologies utilisées :</h4>
+            <div class="technology-logos">
+          <span v-for="technology in selectedProject.technologies" :key="technology.name" class="technology-logo">
+            <img :src="technology.icon" alt="Icone {{ technology.name }}">
+          </span>
+            </div>
           </div>
         </div>
         <button @click="closeProjectModal">Fermer</button>
       </div>
     </div>
+
 
     <!-- Section représentant une frise chronologique de mon parcours scolaire et de mes expériences professionnelles -->
     <section id="parcours">
