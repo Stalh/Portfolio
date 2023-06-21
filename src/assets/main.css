@@ -394,3 +394,59 @@ canvas.sparticles {
     z-index: 0;
 }
 
+.background {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 10s ease;
+}
+
+.background.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-details {
+    display: flex;
+    align-items: center;
+}
+
+.project-image-modal {
+    width: 200px; /* ajuste la taille selon tes besoins */
+    height: auto;
+    margin-right: 20px;
+}
+
+.project-summary {
+    flex-grow: 1;
+}
+
+.project-description {
+    margin-top: 20px;
+}
+
+.project-description h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.project-description p {
+    margin-bottom: 20px;
+}
+
+.modal-line {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.technology-logo {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.technology-logo img {
+    width: 30px;
+    height: 30px;
+}
+
+
+

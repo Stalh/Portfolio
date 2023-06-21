@@ -9,7 +9,7 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <button @click="darkMode = !darkMode">Mode sombre</button>
+      <!-- <button @click="darkMode = !darkMode">Mode sombre</button> -->
     </header>
 
     <section id="hero">
@@ -43,9 +43,25 @@
 
     <div v-if="showProjectModal" class="project-modal">
       <div class="modal-content">
-        <h3>{{ selectedProject.title }}</h3>
-        <p>{{ selectedProject.description }}</p>
-        <!-- Ajoutez ici d'autres détails spécifiques au projet -->
+        <div class="project-details">
+          <div class="project-summary">
+            <h3>{{ selectedProject.title }}</h3>
+            <p>{{ selectedProject.summary }}</p>
+          </div>
+        </div>
+        <div class="project-description">
+          <h4>Description détaillée :</h4>
+          <p>{{ selectedProject.description }}</p>
+        </div>
+        <div class="technologies">
+          <hr class="modal-line">
+          <h4>Technologies utilisées :</h4>
+          <div class="technology-logos">
+            <span v-for="technology in selectedProject.technologies" :key="technology.name" class="technology-logo">
+              <img :src="technology.icon" alt="Icone {{ technology.name }}">
+            </span>
+          </div>
+        </div>
         <button @click="closeProjectModal">Fermer</button>
       </div>
     </div>
@@ -142,13 +158,30 @@ import ProjectItem from './components/ProjectItem.vue';
 import Typewriter from 'typewriter-effect/dist/core';
 import Sparticles from 'sparticles';
 
+
 const projects = ref([
   {
     id: 1,
     image: require('./assets/test.png'),
-    title: 'Projet 1',
-    summary: 'Résumé du projet 1',
-    description: 'Description détaillée du projet 1'
+    title: 'Golden-PPIT',
+    summary: 'Projet de synthèse de fin de licence. Création d\'un site web pour une association fictive.',
+    description: 'Le projet Golden-PPIT est une plateforme de gestion d\'événements en ligne qui suit une méthodologie agile pour son développement.' +
+        ' Le projet est divisé en plusieurs sprints, avec des objectifs spécifiques pour chaque sprint.' +
+        ' L\'architecture du projet est basée sur le modèle MVC (Modèle-Vue-Contrôleur).',
+    images: [
+      require('./assets/test.png'),
+      require('./assets/test.png'),
+      require('./assets/test.png')
+    ],
+    technologies: [
+      { name: 'Git', icon: require('./assets/git.png') },
+      { name: 'Javascript', icon: require('./assets/js.png') },
+      { name: 'PHP', icon: require('./assets/php.png') },
+      { name: 'Composer', icon: require('./assets/composer.png') },
+      { name: 'MySQL', icon: require('./assets/mysql.png') },
+      { name: 'Figma', icon: require('./assets/figma.png') },
+      { name: 'Slim', icon: require('./assets/slim.png') }
+    ]
   },
   {
     id: 2,
@@ -168,7 +201,7 @@ const projects = ref([
 
 const selectedProject = ref(null);
 const showProjectModal = ref(false);
-const darkMode = ref(false);
+//const darkMode = ref(false);
 
 const openProjectModal = (project) => {
   selectedProject.value = project;
@@ -180,8 +213,6 @@ const closeProjectModal = () => {
   showProjectModal.value = false;
 };
 
-
-
 onMounted(() => {
   new Typewriter('#typewriter', {
     strings: ['GuillaumZ', 'Guillaume Zimol - Développeur Web'],
@@ -190,11 +221,12 @@ onMounted(() => {
   });
 });
 
+const showParticles = ref(false);
 
 onMounted(() => {
   setTimeout(() => {
     new Sparticles({
-      selector: '.background', // Sélecteur de l'élément HTML
+      selector: `.background${showParticles.value ? '.show' : ''}`,
       color: '#2c3e50', // Couleur des particules
       connectParticles: true, // Relier les particules entre elles
       speed: 1, // Vitesse de déplacement des particules
@@ -219,7 +251,8 @@ onMounted(() => {
       ],
       // Autres options de configuration des particules
     });
-  }, 0.5);
+    showParticles.value = true;
+  }, 200);
 });
 
 </script>
