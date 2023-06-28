@@ -1,6 +1,6 @@
 <template>
   <div class="project-item" @click="openProjectModal">
-    <img :src="project.image" alt="Image du projet">
+    <img :src="project.image" class="project-icon" alt="Image du projet">
     <h3>{{ project.title }}</h3>
     <p>{{ project.summary }}</p>
     <!-- <slot/> -->
@@ -116,6 +116,13 @@ export default {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     transform: rotate(0deg);
   }
+}
+
+.project-icon {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  z-index: 2;
 }
 
 .project-item:hover {

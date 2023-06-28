@@ -44,7 +44,7 @@
     <div v-if="showProjectModal" class="project-modal">
       <div class="modal-content">
         <div class="project-image">
-          <img :src="selectedProject.image" alt="Image du projet">
+          <img :src="selectedProject.image2" alt="Image du projet">
         </div>
         <div class="project-details">
           <div class="project-summary">
@@ -166,17 +166,13 @@ import Sparticles from 'sparticles';
 const projects = ref([
   {
     id: 1,
-    image: require('./assets/test.png'),
+    image: require('./assets/gppit_icon.png'),
     title: 'Golden-PPIT',
     summary: 'Projet de synthèse de fin de licence. Création d\'un site web pour une association fictive.',
     description: 'Le projet Golden-PPIT est une plateforme de gestion d\'événements en ligne qui suit une méthodologie agile pour son développement.' +
         ' Le projet est divisé en plusieurs sprints, avec des objectifs spécifiques pour chaque sprint.' +
         ' L\'architecture du projet est basée sur le modèle MVC (Modèle-Vue-Contrôleur).',
-    images: [
-      require('./assets/test.png'),
-      require('./assets/test.png'),
-      require('./assets/test.png')
-    ],
+    image2: require('./assets/gppit.png') ,
     technologies: [
       { name: 'Git', icon: require('./assets/git.png') },
       { name: 'Javascript', icon: require('./assets/js.png') },
@@ -189,10 +185,19 @@ const projects = ref([
   },
   {
     id: 2,
-    image: require('./assets/test.png'),
-    title: 'Projet 2',
-    summary: 'Résumé du projet 2',
-    description: 'Description détaillée du projet 2'
+    image: require('./assets/dpiscine_icon.png'),
+    title: 'DPiscine',
+    summary: 'Projet de Design Pattern, développement d\'une application Web avec une architecture client-serveur pour gérer des agendas.',
+    description: 'Ce projet a pour but de mettre en pratique les différents Design Pattern vu en cours. ' +
+        'Il fut réalisé en trinôme, nous avons utilisé Tailwind pour le front et Express pour le back.'+
+        'Nous avons utilisé la méthode agile Scrum pour la réalisation de ce projet.',
+    image2: require('./assets/img.png') ,
+    technologies: [
+      { name: 'Git', icon: require('./assets/git.png') },
+      { name: 'Javascript', icon: require('./assets/js.png') },
+      { name: 'NodeJS', icon: require('./assets/nodejs.png') },
+      { name: 'Tailwind', icon: require('./assets/tailwind.png') }
+    ]
   },
   {
     id: 3,
