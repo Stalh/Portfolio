@@ -201,10 +201,20 @@ const projects = ref([
   },
   {
     id: 3,
-    image: require('./assets/test.png'),
-    title: 'Projet 3',
-    summary: 'Résumé du projet 3',
-    description: 'Description détaillée du projet 3'
+    image: require('./assets/proximus.png'),
+    title: 'Talent Advisor',
+    summary: 'Développement d\'un module d\'absences dans une application web de gestion de ressources humaines.',
+    description: 'Lors de mon stage de fin de licence, j\'ai eu l\'occasion de développer un module d\'absences dans une application web de gestion de ressources humaines.' +
+        ' J\'ai pu mettre en pratique mes connaissances en Javascript, PHP et SQL.' +
+        ' J\'ai également pu découvrir bootstrap, approfondir mes connaissances en Git ainsi que découvrir le framework FullCalendar.',
+    image2: require('./assets/proximus_screen.png') ,
+    technologies: [
+      { name: 'Git', icon: require('./assets/git.png') },
+      { name: 'Javascript', icon: require('./assets/js.png') },
+      { name: 'PHP', icon: require('./assets/php.png') },
+      { name: 'MySQL', icon: require('./assets/mysql.png') },
+      { name: 'Bootstrap', icon: require('./assets/bootstrap.png') }
+    ]
   },
 ]);
 
