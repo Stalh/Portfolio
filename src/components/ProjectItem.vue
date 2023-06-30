@@ -128,6 +128,13 @@ export default {
 .project-item:hover {
   animation: border-animation 2s infinite;
 }
+
+@media (max-width: 768px) {
+  .project-item {
+    width: 90vw;
+    height: calc(90vw * 1.4);
+  }
+}
 </style>
 
 

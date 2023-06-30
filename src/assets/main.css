@@ -571,5 +571,93 @@ canvas.sparticles {
     height: 30px;
 }
 
+/* RESPONSIVE */
 
+/* Ajoute cette partie à la fin de ton code CSS existant */
+
+@media (max-width: 768px) {
+    /* Styles spécifiques à la largeur d'écran maximale de 768px */
+
+    #app {
+        font-size: 16px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    nav ul li a {
+        margin-right: 10px;
+    }
+
+    .profile-image {
+        width: 250px;
+        margin-right: 10px;
+        margin-left: 0;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .project-summary h3 {
+        font-size: 20px;
+    }
+
+    .project-summary p,
+    .project-description p {
+        font-size: 14px;
+    }
+
+    .carousel-slide img {
+        max-width: 100%;
+    }
+
+    .timeline {
+        width: 70%;
+    }
+
+    .direction-l,
+    .direction-r {
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+
+    .flag-wrapper {
+        display: block;
+    }
+
+    .flag {
+        margin: 0 auto;
+    }
+
+    .direction-l .flag:before,
+    .direction-r .flag:before {
+        top: -30px;
+        right: auto;
+        left: 50%;
+        margin-left: -10px;
+    }
+
+    .direction-l .flag:after,
+    .direction-r .flag:after {
+        top: 50%;
+        left: auto;
+        right: 50%;
+        margin-left: -10px;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-top-color: rgb(248, 248, 248);
+        border-width: 8px;
+    }
+
+    .time-wrapper {
+        display: block;
+    }
+}
 
