@@ -43,7 +43,7 @@
 
     <div v-if="showProjectModal" class="project-modal">
       <div class="modal-content">
-        <div class="project-image">
+        <div class="project-image-modal">
           <img :src="selectedProject.image2" alt="Image du projet">
         </div>
         <div class="project-details">
@@ -80,7 +80,7 @@
               <span class="flag">Lycée Louis Bertrand</span>
               <span class="time-wrapper"><span class="time">2015 - 2018</span></span>
             </div>
-            <div class="desc">C'est la où j'ai commencé à codé, en python.</div>
+            <div class="desc">BAC S SI spécialité ISN. <br>  </div>
           </div>
         </li>
         <li>
@@ -89,7 +89,7 @@
               <span class="flag">FST (Nancy)</span>
               <span class="time-wrapper"><span class="time">2018 - 2022</span></span>
             </div>
-            <div class="desc">Via de nombreux projet ma capcité à coder à évoluer dans différent langage mais surtout en Java.</div>
+            <div class="desc">Au cours de ma Licence j'ai réalisé de nombreux </div>
           </div>
         </li>
         <li>

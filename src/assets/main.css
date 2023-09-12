@@ -22,9 +22,6 @@ nav ul li {
     margin-right: 10px;
 }
 
-header {
-    padding: 30px;
-}
 
 nav ul li a {
     text-decoration: none;
@@ -204,6 +201,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     padding: 20px;
+    align-items: center;
 }
 
 h2 {
@@ -528,16 +526,14 @@ canvas.sparticles {
     visibility: visible;
 }
 
-.project-details {
-    display: flex;
-    align-items: center;
-}
-
 .project-image-modal {
-    width: 200px; /* ajuste la taille selon tes besoins */
+    max-width: 50px; /* Set the maximum width for the image */
+    max-height: 50px; /* Set the maximum height for the image */
+    width: auto;
     height: auto;
     margin-right: 20px;
 }
+
 
 .project-summary {
     flex-grow: 1;
@@ -547,24 +543,27 @@ canvas.sparticles {
     margin-top: 20px;
 }
 
-.project-description h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
+.project-image-modal {
+    max-width: 50%; /* Set the maximum width for the image */
+    max-height: 300px; /* Set the maximum height for the image */
+    margin-right: 20px;
 }
 
-.project-description p {
-    margin-bottom: 20px;
+.project-image-modal img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
+
+
 
 .modal-line {
     border-top: 1px solid #ccc;
     margin: 20px 0;
 }
 
-.technology-logo {
-    display: inline-block;
-    margin-right: 10px;
-}
 
 .technology-logo img {
     width: 30px;
@@ -573,91 +572,142 @@ canvas.sparticles {
 
 /* RESPONSIVE */
 
-/* Ajoute cette partie à la fin de ton code CSS existant */
-
-@media (max-width: 768px) {
-    /* Styles spécifiques à la largeur d'écran maximale de 768px */
-
+@media (max-width: 769px) {
     #app {
-        font-size: 16px;
+        text-align: center;
     }
 
-    header {
-        padding: 10px;
+    .hero-content {
+        max-width: 100%;
+        padding: 0 20px;
     }
 
+    .profile-image {
+        margin-left: 0;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .timeline {
+        width: 100%;
+    }
+
+    .direction-l,
+    .direction-r {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
     nav ul li a {
         margin-right: 10px;
     }
 
     .profile-image {
-        width: 250px;
-        margin-right: 10px;
-        margin-left: 0;
+        width: 200px;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 
-    .modal-content {
-        padding: 20px;
+    .project-image img {
+        margin-right: 0;
+    }
+
+    .timeline {
+        width: 100%;
+        max-width: 660px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .flag-wrapper {
+        text-align: center;
+    }
+
+    .direction-l .flag:before,
+    .direction-r .flag:before {
+        right: -20px;
+    }
+
+    .direction-l .flag:after {
+        left: 100%;
+    }
+
+    .direction-r .flag:after {
+        right: 100%;
+    }
+
+    .time-wrapper {
+        display: block;
+        font-size: 12px;
+    }
+
+    .desc {
+        font-size: 14px;
+    }
+
+    .project-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .project-details {
+        padding: 0;
     }
 
     h2 {
         font-size: 24px;
+        margin-bottom: 10px;
     }
 
     .project-summary h3 {
         font-size: 20px;
     }
 
-    .project-summary p,
+    .project-summary p {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .project-description h4 {
+        font-size: 18px;
+    }
+
     .project-description p {
         font-size: 14px;
     }
 
-    .carousel-slide img {
-        max-width: 100%;
+    .technologies h4 {
+        font-size: 18px;
     }
 
-    .timeline {
-        width: 70%;
+    .technology-logo img {
+        width: 20px;
+        height: 20px;
     }
 
-    .direction-l,
-    .direction-r {
-        width: 100%;
-        float: none;
-        text-align: center;
+    .modal-content {
+        width: 200px;
+        height: 400px;
     }
 
-    .flag-wrapper {
-        display: block;
-    }
-
-    .flag {
-        margin: 0 auto;
-    }
-
-    .direction-l .flag:before,
-    .direction-r .flag:before {
-        top: -30px;
-        right: auto;
-        left: 50%;
-        margin-left: -10px;
-    }
-
-    .direction-l .flag:after,
-    .direction-r .flag:after {
-        top: 50%;
-        left: auto;
-        right: 50%;
-        margin-left: -10px;
-        border-left-color: transparent;
-        border-right-color: transparent;
-        border-top-color: rgb(248, 248, 248);
-        border-width: 8px;
-    }
-
-    .time-wrapper {
-        display: block;
-    }
 }
 
+/*
+
+@media (max-width: 768px) {
+
+    .timeline:before {
+        left: 25%;
+    }
+
+    .timeline .timeline-item {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+}
+*/
