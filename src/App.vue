@@ -157,66 +157,83 @@
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue';
+import { onMounted, ref } from 'vue';
 import ProjectItem from './components/ProjectItem.vue';
 import Typewriter from 'typewriter-effect/dist/core';
 import Sparticles from 'sparticles';
 
+import gppitIcon from './assets/gppit_icon.png';
+import gppit from './assets/gppit.png';
+import git from './assets/git.png';
+import js from './assets/js.png';
+import php from './assets/php.png';
+import composer from './assets/composer.png';
+import mysql from './assets/mysql.png';
+import figma from './assets/figma.png';
+import slim from './assets/slim.png';
+import dpiscineIcon from './assets/dpiscine_icon.png';
+import img from './assets/img.png';
+import nodejs from './assets/nodejs.png';
+import tailwind from './assets/tailwind.png';
+import proximus from './assets/proximus.png';
+import proximusScreen from './assets/proximus_screen.png';
+import bootstrap from './assets/bootstrap.png';
 
 const projects = ref([
   {
     id: 1,
-    image: require('./assets/gppit_icon.png'),
+    image: gppitIcon,
     title: 'Golden-PPIT',
     summary: 'Projet de synthèse de fin de licence. Création d\'un site web pour une association fictive.',
     description: 'Le projet Golden-PPIT est une plateforme de gestion d\'événements en ligne qui suit une méthodologie agile pour son développement.' +
         ' Le projet est divisé en plusieurs sprints, avec des objectifs spécifiques pour chaque sprint.' +
         ' L\'architecture du projet est basée sur le modèle MVC (Modèle-Vue-Contrôleur).',
-    image2: require('./assets/gppit.png') ,
+    image2: gppit,
     technologies: [
-      { name: 'Git', icon: require('./assets/git.png') },
-      { name: 'Javascript', icon: require('./assets/js.png') },
-      { name: 'PHP', icon: require('./assets/php.png') },
-      { name: 'Composer', icon: require('./assets/composer.png') },
-      { name: 'MySQL', icon: require('./assets/mysql.png') },
-      { name: 'Figma', icon: require('./assets/figma.png') },
-      { name: 'Slim', icon: require('./assets/slim.png') }
+      { name: 'Git', icon: git },
+      { name: 'Javascript', icon: js },
+      { name: 'PHP', icon: php },
+      { name: 'Composer', icon: composer },
+      { name: 'MySQL', icon: mysql },
+      { name: 'Figma', icon: figma },
+      { name: 'Slim', icon: slim }
     ]
   },
   {
     id: 2,
-    image: require('./assets/dpiscine_icon.png'),
+    image: dpiscineIcon,
     title: 'DPiscine',
     summary: 'Projet de Design Pattern, développement d\'une application Web avec une architecture client-serveur pour gérer des agendas.',
     description: 'Ce projet a pour but de mettre en pratique les différents Design Pattern vu en cours. ' +
         'Il fut réalisé en trinôme, nous avons utilisé Tailwind pour le front et Express pour le back.'+
         'Nous avons utilisé la méthode agile Scrum pour la réalisation de ce projet.',
-    image2: require('./assets/img.png') ,
+    image2: img,
     technologies: [
-      { name: 'Git', icon: require('./assets/git.png') },
-      { name: 'Javascript', icon: require('./assets/js.png') },
-      { name: 'NodeJS', icon: require('./assets/nodejs.png') },
-      { name: 'Tailwind', icon: require('./assets/tailwind.png') }
+      { name: 'Git', icon: git },
+      { name: 'Javascript', icon: js },
+      { name: 'NodeJS', icon: nodejs },
+      { name: 'Tailwind', icon: tailwind }
     ]
   },
   {
     id: 3,
-    image: require('./assets/proximus.png'),
+    image: proximus,
     title: 'Talent Advisor',
     summary: 'Développement d\'un module d\'absences dans une application web de gestion de ressources humaines.',
     description: 'Lors de mon stage de fin de licence, j\'ai eu l\'occasion de développer un module d\'absences dans une application web de gestion de ressources humaines.' +
         ' J\'ai pu mettre en pratique mes connaissances en Javascript, PHP et SQL.' +
         ' J\'ai également pu découvrir bootstrap, approfondir mes connaissances en Git ainsi que découvrir le framework FullCalendar.',
-    image2: require('./assets/proximus_screen.png') ,
+    image2: proximusScreen,
     technologies: [
-      { name: 'Git', icon: require('./assets/git.png') },
-      { name: 'Javascript', icon: require('./assets/js.png') },
-      { name: 'PHP', icon: require('./assets/php.png') },
-      { name: 'MySQL', icon: require('./assets/mysql.png') },
-      { name: 'Bootstrap', icon: require('./assets/bootstrap.png') }
+      { name: 'Git', icon: git },
+      { name: 'Javascript', icon: js },
+      { name: 'PHP', icon: php },
+      { name: 'MySQL', icon: mysql },
+      { name: 'Bootstrap', icon: bootstrap }
     ]
   },
 ]);
+
 
 const selectedProject = ref(null);
 const showProjectModal = ref(false);
